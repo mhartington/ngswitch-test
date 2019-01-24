@@ -4,9 +4,32 @@
       Ionic Blank
     </ion-title>
   </ion-toolbar>
+  <ion-toolbar>
+    <ion-segment [(ngModel)]="li">
+      <ion-segment-button value="you">
+        Your Friends
+      </ion-segment-button>
+      <ion-segment-button value="all">
+        Li
+      </ion-segment-button>
+    </ion-segment>
+
+  </ion-toolbar>
 </ion-header>
 
 <ion-content padding>
-  The world is your oyster.
-  <p>If you get lost, the <a target="_blank" rel="noopener" href="https://ionicframework.com/docs/">docs</a> will be your guide.</p>
+
+  <div [ngSwitch]="li">
+    <ion-list *ngSwitchCase="'all'">
+      <ion-list-header>
+        Li
+      </ion-list-header>
+    </ion-list>
+
+    <ion-list *ngSwitchCase="'you'">
+      <ion-list-header>
+        My Friends
+      </ion-list-header>
+    </ion-list>
+  </div>
 </ion-content>
